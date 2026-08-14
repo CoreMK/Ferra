@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mariadb:10.11
+    environment: {MARIADB_DATABASE: ferreta, MARIADB_USER: ferreta, MARIADB_PASSWORD: local, MARIADB_ROOT_PASSWORD: root}
+  wordpress:
+    image: wordpress:6.6-php8.2-apache
+    ports: ["8080:80"]
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: ferreta
+      WORDPRESS_DB_USER: ferreta
+      WORDPRESS_DB_PASSWORD: local
+      FERRETA_TELEGRAM_BOT_TOKEN: ${FERRETA_TELEGRAM_BOT_TOKEN}
+      FERRETA_TELEGRAM_CHAT_IDS: ${FERRETA_TELEGRAM_CHAT_IDS}
+      WORDPRESS_CONFIG_EXTRA: "define('FERRETA_TELEGRAM_BOT_TOKEN', getenv('FERRETA_TELEGRAM_BOT_TOKEN')); define('FERRETA_TELEGRAM_CHAT_IDS', getenv('FERRETA_TELEGRAM_CHAT_IDS'));"
+    volumes:
+      - ./docker/apache-ferreta.conf:/etc/apache2/conf-enabled/ferreta.conf:ro
+      - ./wp-content/themes/ferreta:/var/www/html/wp-content/themes/ferreta
+      - ./wp-content/plugins/ferreta-core:/var/www/html/wp-content/plugins/ferreta-core

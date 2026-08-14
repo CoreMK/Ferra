@@ -1,0 +1,23 @@
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100%;
+  width: 100% !important;
+  max-width: none !important;
+  overflow-x: hidden;
+}
+
+.site-header,
+.site-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.shop-page .products.shop-products::before,
+.shop-page .products.shop-products::after {
+  content: none !important;
+  display: none !important;
+}

@@ -1,0 +1,1 @@
+document.querySelectorAll('[data-product-image]').forEach(button=>button.addEventListener('click',()=>{const image=document.querySelector('.product-main-image img');if(image)image.src=button.dataset.productImage;}));

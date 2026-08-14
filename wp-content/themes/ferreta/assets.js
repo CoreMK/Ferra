@@ -1,0 +1,10 @@
+const q=s=>document.querySelector(s),qa=s=>document.querySelectorAll(s);
+q('[data-nav-toggle]')?.addEventListener('click',()=>q('[data-nav]')?.classList.toggle('open'));
+q('.nav-catalog')?.addEventListener('click',e=>{if(innerWidth>850){e.preventDefault();q('[data-mega]')?.classList.toggle('open')}});
+q('[data-search-toggle]')?.addEventListener('click',()=>q('[data-search]')?.classList.toggle('open'));
+const lead=q('#lead'),dialog=q('dialog');
+qa('[data-lead]').forEach(button=>button.onclick=()=>{if(lead&&dialog){lead.type.value=button.dataset.lead;dialog.showModal()}});
+q('[data-close]')?.addEventListener('click',()=>dialog?.close());
+const submitLead=form=>form.onsubmit=async event=>{event.preventDefault();const data=Object.fromEntries(new FormData(form));['utm_source','utm_medium','utm_campaign'].forEach(key=>data[key]=new URLSearchParams(location.search).get(key)||'');const output=form.querySelector('output');try{const response=await fetch(Ferreta.rest,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!response.ok)throw new Error('lead');form.reset();output.textContent='Дякуємо! Менеджер зв’яжеться з вами найближчим часом.'}catch(error){output.textContent='Не вдалося надіслати заявку. Спробуйте ще раз.'}};
+if(lead)submitLead(lead);const projectLead=q('#project-lead');if(projectLead)submitLead(projectLead);
+for(const[key,store,on,off]of[['save','ferretaFavorites','♥','♡'],['compare','ferretaCompare','✓','⇄']])qa(`[data-${key}]`).forEach(button=>button.onclick=()=>{let ids=JSON.parse(localStorage[store]||'[]'),id=button.dataset[key];ids=ids.includes(id)?ids.filter(item=>item!==id):[...ids,id];localStorage[store]=JSON.stringify(ids);button.textContent=ids.includes(id)?on:off});
