@@ -5,7 +5,6 @@ $categories=get_terms(['taxonomy'=>'product_cat','hide_empty'=>false,'exclude'=>
 ?>
 <main class="decor-categories">
   <section class="decor-categories__hero">
-    <p class="kicker">FERRETA DECOR / КАТЕГОРІЇ</p>
     <h1>Предмети, з яких<br>складається <em>характер</em> простору.</h1>
     <p>Обирайте не за одним типом товару, а за роллю предмета у вашому домі, терасі чи бізнесі.</p>
   </section>
