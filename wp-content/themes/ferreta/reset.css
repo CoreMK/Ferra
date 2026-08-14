@@ -21,3 +21,22 @@ body {
   content: none !important;
   display: none !important;
 }
+
+.language-switcher {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 4px;
+}
+
+.language-switcher a,
+.language-switcher span {
+  color: var(--ink);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-decoration: none;
+}
+
+.language-switcher .is-active {
+  color: var(--metal);
+  font-weight: 700;
+}
