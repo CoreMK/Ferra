@@ -3,4 +3,4 @@ Create products in WooCommerce; SKU, price, stock, attributes and photos are edi
 
 ## Home page
 
-The approved visual layout of the home page is a custom theme template, so it is not replaced with a generic Gutenberg page. To edit its editorial content, open **Appearance → Главная Ferreta**. The screen groups every editable headline, text, button label and link by visual section. Save the form to publish the changes; products and category cards continue to be managed in WooCommerce.
+The home page is a standard Gutenberg page called **Головна**. Open **Pages → Головна → Edit** to work with it as a page builder: select a Ferreta section, edit its fields in the right sidebar, drag it by the six-dot handle to change its position, or add a new **Ferreta — секция главной** block with the block inserter. The theme renders each block in the approved storefront design. Product cards and category cards remain dynamic and are managed in WooCommerce.

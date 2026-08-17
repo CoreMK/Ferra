@@ -1,6 +1,17 @@
 <?php
 get_header();
 
+// A static front page made from Ferreta Gutenberg sections takes precedence.
+if (have_posts()) {
+	the_post();
+	if (has_blocks(get_the_content())) {
+		the_content();
+		get_footer();
+		return;
+	}
+	rewind_posts();
+}
+
 $featured = wc_get_products([
 	'status'  => 'publish',
 	'limit'   => 4,
