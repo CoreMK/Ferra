@@ -32,7 +32,7 @@ function ferreta_home_render_block(array $attributes): string {
 }
 
 add_action('init', function(){
-	wp_register_script('ferreta-home-blocks', get_template_directory_uri().'/home-blocks.js', ['wp-blocks','wp-element','wp-components','wp-block-editor','wp-i18n'], '1.0', true);
+	wp_register_script('ferreta-home-blocks', get_template_directory_uri().'/home-blocks.js', ['wp-blocks','wp-element','wp-components','wp-block-editor','wp-i18n'], filemtime(get_template_directory().'/home-blocks.js'), true);
 	wp_localize_script('ferreta-home-blocks', 'FerretaHomeBlocks', ['defaults'=>ferreta_home_block_defaults()]);
 	wp_register_style('ferreta-home-blocks', false, [], '1.0');
 	register_block_type('ferreta/home-section', ['editor_script'=>'ferreta-home-blocks','render_callback'=>'ferreta_home_render_block','attributes'=>['variant'=>['type'=>'string','default'=>'hero']]]);
