@@ -63,3 +63,29 @@ body {
 .buy-link.ajax_add_to_cart,
 .related-add.ajax_add_to_cart { width: 100%; border-right: 0; border-bottom: 0; border-left: 0; background: transparent; font: inherit; cursor: pointer; text-align: left; }
 .catalog-card__add.ajax_add_to_cart { border: 0; cursor: pointer; }
+
+.homepage-editor > .wp-block-group { margin-block: 0; }
+.ferreta-home-hero { min-height: calc(100vh - 121px); padding: 120px max(32px, calc((100vw - 1400px)/2)) 70px; display: grid; align-content: end; color: #fff; background: linear-gradient(120deg, #172019, #2d4130 68%, #8f7557); }
+.ferreta-home-hero > * { max-width: 720px; }
+.ferreta-home-hero h1, .ferreta-home-categories h2, .ferreta-home-products h2, .ferreta-home-b2b h2, .ferreta-home-journal h2 { font: clamp(43px, 6.5vw, 105px)/.9 Georgia, serif; letter-spacing: -.055em; margin: 14px 0 28px; }
+.ferreta-home-hero > p:not(.kicker) { max-width: 520px; font-size: 18px; }
+.ferreta-home-hero .wp-block-button__link, .ferreta-home-b2b .wp-block-button__link { border-radius: 0; background: var(--metal); color: #17120c; font-weight: 700; }
+.ferreta-home-hero .is-style-outline .wp-block-button__link { color: #fff; border-color: #fff; background: transparent; }
+.ferreta-home-tiles { width: var(--shell); margin: 12px auto 0 !important; }
+.ferreta-home-tiles .wp-block-columns { gap: 12px; }
+.ferreta-home-tiles .wp-block-column { min-height: 390px; padding: 28px; display: flex; flex-direction: column; justify-content: end; color: #fff; background: #405146; }
+.ferreta-home-tiles .wp-block-column:nth-child(2) { background: #9a8269; }
+.ferreta-home-tiles .wp-block-column:nth-child(3) { background: #314032; }
+.ferreta-home-tiles h2 { font: clamp(32px, 4vw, 55px)/.95 Georgia, serif; margin: 10px 0; }
+.ferreta-home-tiles a, .ferreta-home-categories a, .ferreta-home-products > p a, .ferreta-home-journal a { color: inherit; }
+.ferreta-home-categories { margin-top: 110px !important; padding: 110px max(32px, calc((100vw - 1400px)/2)); color: #f5f2e9; background: var(--forest); }
+.ferreta-home-categories > .wp-block-shortcode { max-width: 1400px; margin: 62px auto 0; }
+.ferreta-home-categories .space-grid { margin-top: 0; }
+.ferreta-home-products, .ferreta-home-journal { width: var(--shell); margin: 0 auto !important; padding: 130px 0; }
+.ferreta-home-products > .wp-block-shortcode { display: block; margin-top: 48px; }
+.ferreta-home-b2b { padding: 115px max(32px, calc((100vw - 1400px)/2)); color: #1b170f; background: #ad763d; }
+.ferreta-home-b2b .wp-block-columns, .ferreta-home-journal .wp-block-columns { gap: 90px; align-items: center; }
+.ferreta-home-b2b .wp-block-column:last-child { font-size: 18px; }
+.ferreta-home-journal { padding-bottom: 140px; }
+.ferreta-home-journal h3 { padding-top: 22px; border-top: 1px solid var(--line); font: 28px/1 Georgia, serif; }
+@media (max-width: 850px) { .ferreta-home-hero { min-height: 650px; padding: 72px 20px 45px; }.ferreta-home-hero h1, .ferreta-home-categories h2, .ferreta-home-products h2, .ferreta-home-b2b h2, .ferreta-home-journal h2 { font-size: 52px; }.ferreta-home-tiles .wp-block-columns { gap: 8px; }.ferreta-home-tiles .wp-block-column { min-height: 250px; }.ferreta-home-categories { margin-top: 70px !important; padding: 75px 16px; }.ferreta-home-products, .ferreta-home-journal { padding: 80px 0; }.ferreta-home-b2b { padding: 80px 20px; }.ferreta-home-b2b .wp-block-columns, .ferreta-home-journal .wp-block-columns { gap: 28px; } }

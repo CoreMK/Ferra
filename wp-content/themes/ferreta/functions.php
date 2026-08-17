@@ -37,3 +37,13 @@ add_action('wp_enqueue_scripts',function(){wp_enqueue_style('ferreta-reset',get_
 add_filter('woocommerce_show_page_title','__return_false');
 add_filter('loop_shop_per_page',fn()=>24);
 add_action('wp_head',function(){if(is_product()){global $product;if($product instanceof WC_Product){$schema=['@context'=>'https://schema.org','@type'=>'Product','name'=>$product->get_name(),'sku'=>$product->get_sku(),'offers'=>['@type'=>'Offer','priceCurrency'=>'UAH','price'=>$product->get_price(),'availability'=>$product->is_in_stock()?'https://schema.org/InStock':'https://schema.org/OutOfStock']];echo '<script type="application/ld+json">'.wp_json_encode($schema).'</script>';}}});
+function ferreta_home_categories_shortcode(): string {
+  $links=[['Декоративне освітлення','decorative-lighting'],['Меблі лофт','loft-furniture'],['Настінний декор','wall-decor'],['Малий декор','small-decor'],['Декор для тераси','terrace-decor'],['Для бізнесу','business-decor']];
+  ob_start(); echo '<div class="space-grid">'; foreach($links as $index=>[$label,$slug]){$term=get_term_by('slug',$slug,'product_cat');$url=$term?get_term_link($term):home_url('/spaces/');echo '<a href="'.esc_url($url).'"><span>0'.($index+1).'</span><strong>'.esc_html($label).'</strong><i>→</i></a>';} echo '</div>'; return (string)ob_get_clean();
+}
+add_shortcode('ferreta_home_categories','ferreta_home_categories_shortcode');
+function ferreta_featured_products_shortcode(): string {
+  $products=wc_get_products(['status'=>'publish','limit'=>4,'orderby'=>'date','order'=>'DESC']);
+  ob_start(); echo '<div class="editorial-products">'; foreach($products as $product){echo '<article><a href="'.esc_url(get_permalink($product->get_id())).'">'.wp_get_attachment_image($product->get_image_id(),'medium',false,['loading'=>'lazy']).'</a><div><small>'.esc_html($product->get_sku()).'</small><h3>'.esc_html($product->get_name()).'</h3><p>'.wp_kses_post($product->get_price_html()).'</p><button type="button" class="buy-link ajax_add_to_cart" data-product_id="'.esc_attr((string)$product->get_id()).'">До кошика <span>+</span></button></div></article>';} echo '</div>'; return (string)ob_get_clean();
+}
+add_shortcode('ferreta_featured_products','ferreta_featured_products_shortcode');
