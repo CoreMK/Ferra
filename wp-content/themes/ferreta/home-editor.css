@@ -1,0 +1,12 @@
+/* Gutenberg canvas: use the same visual language as the storefront, without affecting visitors. */
+.editor-styles-wrapper { background: var(--ivory, #f7f5ef); }
+.editor-styles-wrapper .wp-block-ferreta-home-section { max-width: none; margin: 0; }
+.editor-styles-wrapper .wp-block-ferreta-home-section > .ferreta-home-block-editor { margin: 0; }
+.editor-styles-wrapper .ferreta-home-block-editor { position: relative; }
+.editor-styles-wrapper .ferreta-home-block-editor__label { position: absolute; z-index: 3; top: 14px; right: 16px; padding: 5px 8px; background: #172019; color: #fff; font: 10px Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.editor-styles-wrapper .ferreta-home-block-editor__hint { display: none; }
+.editor-styles-wrapper .ferreta-home-block-editor a { pointer-events: none; }
+.editor-styles-wrapper .ferreta-home-block-editor .editor-placeholder { opacity: .7; font-size: 12px; }
+.editor-styles-wrapper .ferreta-home-block-editor .editor-product-placeholder { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.editor-styles-wrapper .ferreta-home-block-editor .editor-product-placeholder span { height: 250px; background: linear-gradient(135deg,#ded7c9,#b7b4aa); }
+@media (max-width: 850px) { .editor-styles-wrapper .ferreta-home-block-editor .editor-product-placeholder { grid-template-columns: repeat(2,1fr); } }

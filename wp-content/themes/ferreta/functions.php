@@ -38,6 +38,7 @@ add_filter('woocommerce_show_page_title','__return_false');
 add_filter('loop_shop_per_page',fn()=>24);
 add_action('wp_head',function(){if(is_product()){global $product;if($product instanceof WC_Product){$schema=['@context'=>'https://schema.org','@type'=>'Product','name'=>$product->get_name(),'sku'=>$product->get_sku(),'offers'=>['@type'=>'Offer','priceCurrency'=>'UAH','price'=>$product->get_price(),'availability'=>$product->is_in_stock()?'https://schema.org/InStock':'https://schema.org/OutOfStock']];echo '<script type="application/ld+json">'.wp_json_encode($schema).'</script>';}}});
 require_once get_template_directory() . '/home-blocks.php';
+add_action('after_setup_theme', function(){ add_theme_support('editor-styles'); add_editor_style(['assets.css', 'home-editor.css']); });
 
 function ferreta_home_fields(): array {
   return [
